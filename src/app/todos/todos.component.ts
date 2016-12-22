@@ -21,9 +21,15 @@ export class TodosComponent implements OnInit {
     var newTodo = {
       text: this.text
     }
-    this.todos.push(newTodo);
-    
-    this._todoService.addTodo(newTodo);
+    if (!this.text) {
+      document.getElementById('danger').innerHTML = "<div class='alert alert-danger'>You have to fill in this field!</div>";
+    }
+    else {
+      document.getElementById('danger').innerHTML = "";
+      this.todos.push(newTodo);
+      this.text = '';
+      this._todoService.addTodo(newTodo);
+    }
   }
   
   deleteTodo(todoText) {

@@ -1,0 +1,11 @@
+.alert {
+  margin: 20px 0 0 0;
+}
+.list-group-item {
+   position: relative;
+}
+.list-group-item button {
+  position: absolute;
+  right: 6px;
+  top: 5px;
+}
