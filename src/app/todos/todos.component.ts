@@ -10,6 +10,7 @@ export class TodosComponent implements OnInit {
   todos;
   text;
   oldText;
+  hideError:boolean = true;
   appState = 'default';
   constructor(private _todoService: TodoService) { }
 
@@ -22,10 +23,10 @@ export class TodosComponent implements OnInit {
       text: this.text
     }
     if (!this.text) {
-      document.getElementById('danger').innerHTML = "<div class='alert alert-danger'>You have to fill in this field!</div>";
+      this.hideError = false;
     }
     else {
-      document.getElementById('danger').innerHTML = "";
+      this.hideError = true;
       this.todos.push(newTodo);
       this.text = '';
       this._todoService.addTodo(newTodo);
